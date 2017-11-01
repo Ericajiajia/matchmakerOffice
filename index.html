@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.2, user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta name="description" content="h5小游戏">
+    <meta name="keywords" content="11.11脱单作战">
+    <meta name="author" content="佳佳">
+    <title></title>
+    <script>
+        (function setFontSize () {
+            //动态改变根节点字体大小
+            var docEle = document.documentElement,
+                    evt = "onorientationchange" in window ? "orientationchange" : "resize",
+                    fn = function() {
+                        var width = docEle.clientWidth;
+                        var height = docEle.clientHeight;
+                        var scale = (width / height) / (750 / 1373);
+                        width && (docEle.style.fontSize = width / (3.75 * scale) + "px");
+                    };
+            window.addEventListener(evt, fn, false);
+            document.addEventListener("DOMContentLoaded", fn, false);
+        })();
+    </script>
+    <link rel="stylesheet" href="./static/css/index.css">
+    <!-- <link rel="stylesheet" href=""> -->
+</head>
+<body>
+<script src="./static/js/jquery.js"></script>
+<script src="./static/js/anime.js"></script>
+<script src="./static/js/index.js"></script>
+</body>
+</html>
