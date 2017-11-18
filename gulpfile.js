@@ -22,9 +22,9 @@ gulp.task('fontspider', function () {
 gulp.task('Imagemin', function () {
 	gulp.src('./static/picture/*.*')
 		.pipe(imagemin({
-			optimizationLevel: 5,
-			progressive: true,
-			use: [pngquant()]
+			optimizationLevel: 5,    //类型：Number  默认：3  取值范围：0-7（优化等级）
+			progressive: true,       //类型：Boolean 默认：false 无损压缩jpg图片
+			use: [pngquant()]        //使用pngquant深度压缩png图片的imagemin插件
 		}))
 		.pipe(gulp.dest('./static/pic'))
 })
@@ -43,6 +43,10 @@ gulp.task('miniScript', function () {
 		.pipe(concat('main.js'))
 		.pipe(jsmin())
 		.pipe(rename({suffix: '.min'}))
+  //	 .pipe(uglify({
+  //           compress: true,//类型：Boolean 默认：true 是否完全压缩
+  //           preserveComments: 'all' //保留所有注释
+  //       }))
 		.pipe(gulp.dest('./static/js'))
 })
 gulp.task('default', ['fontspider', 'Imagemin', 'miniCss', 'miniScript'])
